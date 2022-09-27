@@ -7,6 +7,7 @@ TagManager:
   - Point
   - Enemy
   - Water
+  - GameOver
   layers:
   - Default
   - TransparentFX

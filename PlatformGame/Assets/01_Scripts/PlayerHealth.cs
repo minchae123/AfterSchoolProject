@@ -11,10 +11,20 @@ public class PlayerHealth : MonoBehaviour
     public Sprite emptyH;
 
     private Rigidbody2D rb;
+    public GameObject gameOverScreen;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameOverScreen.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if(healthPoint <= 0)
+        {
+            gameOverScreen.SetActive(true);
+        }    
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Damage()
     {
+        CameraShake.instance.Shake(10f, 0.2f);
         healthPoint--;
         heart[healthPoint].sprite = emptyH;
     }

@@ -11,6 +11,7 @@ public class EnemyDead : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //kill
+            CameraShake.instance.Shake(10f, 0.2f);  
             Instantiate(deadEffect, transform.position, Quaternion.identity);
             Destroy(transform.parent.gameObject);
         }
