@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     public LayerMask whatIsGround;
 
     public Animator animator;
+    public bool downPressed;
 
     private void Update()
     {
@@ -46,6 +47,16 @@ public class Movement : MonoBehaviour
         {
             //velocity.y = -2f;
         }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            downPressed = true;
+        }
+        else
+        {
+            downPressed = false;
+        }
+
         if (Input.GetButtonDown("Jump"))
         {
            if (coyoteTimerCounter > 0 || doubleJump)
