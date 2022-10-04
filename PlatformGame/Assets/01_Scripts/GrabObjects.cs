@@ -23,15 +23,22 @@ public class GrabObjects : MonoBehaviour
 
         if (hitInfo.collider != null && hitInfo.collider.gameObject.layer == layerIndex)
         {
+            Debug.Log(hitInfo.collider.gameObject.name);
             // grab object
             if(grabbedObject == null && Input.GetKey(KeyCode.G))
             {
                 grabbedObject = hitInfo.collider.gameObject;
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                grabbedObject.transform.position = grabPos.position;
+                grabbedObject.transform.SetParent(transform);
+                grabbedObject.GetComponent<BoxCollider2D>().isTrigger = true;
             } // release object
             else if (Input.GetKeyDown(KeyCode.R))
             {
-
+                grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                grabbedObject.GetComponent<BoxCollider2D>().isTrigger = false;
+                grabbedObject.transform.SetParent(null);
+                grabbedObject = null;
             }
         }
 
