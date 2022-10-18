@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Water
   - GameOver
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - 
   - Objects
   - Ground
-  - 
-  - 
+  - Player
+  - Pet
   - 
   - 
   - 
