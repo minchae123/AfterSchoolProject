@@ -14,7 +14,7 @@ public class ObjectBuilderEditor : Editor
 
         if(GUILayout.Button("Object Builder Btn"))
         {
-
+            obs.BuildObject();
         }
     }
 }
