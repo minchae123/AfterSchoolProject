@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class MenuItems
 {
-    [MenuItem("alsco")]
+    [MenuItem("alsco/alsco")]
     private static void NewNewMenu()
     {
         Debug.Log("Hi");
