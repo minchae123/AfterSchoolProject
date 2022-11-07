@@ -1,4 +1,4 @@
-# AfterSchoolProject ( 유니티 중급반 방과후 수업 )
+# AfterSchoolProject ( 2022 2학기 유니티 중급반 방과후 수업 )
 
 
 1. 틱택토 게임 제작 ( 메인 로직 )
