@@ -44,7 +44,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     {
         Debug.Log(message: "Joing button click");
         btnJoin.SetActive(false);
-        btnJoin.SetActive(true);
+        btnLeave.SetActive(true);
         PhotonNetwork.JoinRandomRoom();
     }
 
@@ -64,6 +64,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         int randomRoomName = UnityEngine.Random.Range(0, 10000);
         RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 20 };
         PhotonNetwork.CreateRoom(roomName: "Room" + randomRoomName, roomOps);
+        //txtInfo.text = randomRoomName + " ¹æ";
     }
 
     public void OnCancleButtonClick()
