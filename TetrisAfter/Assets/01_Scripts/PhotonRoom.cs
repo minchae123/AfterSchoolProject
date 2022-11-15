@@ -30,12 +30,24 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         DontDestroyOnLoad(this.gameObject);
     }
 
-
     public void StartGame()
     {
         string msMatchFound = "Match found, string a game (VS)";
         txtInfo.text = msMatchFound;
         Debug.Log(msMatchFound);
         PhotonNetwork.LoadLevel(multiplayScene);
+    }
+
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        Debug.Log(message: "We are in a room");
+        numConnected = PhotonNetwork.PlayerList.Length;
+        string msJoinRoom = "Connext Room Name : " + PhotonNetwork.CurrentRoom.Name + "Players connected : " + numConnected;
+        Debug.Log(msJoinRoom);
+        txtInfo.text = string.Format(msJoinRoom, PhotonNetwork.CurrentRoom.Name, numConnected);
+        Debug.Log(message: string.Format(msJoinRoom, PhotonNetwork.CurrentRoom.Name, numConnected));
+
+        StartGame();
     }
 }
