@@ -27,7 +27,6 @@ public class SpawnTetromino : MonoBehaviour
         NewTetroMino();
     }
 
-
     private void Update()
     {
         if (scoreText) scoreText.text = $"Score : {score}";

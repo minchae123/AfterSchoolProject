@@ -866,7 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScene: 0
-  multiplayScene: 0
+  multiplayScene: 1
   txtInfo: {fileID: 2112272132}
 --- !u!4 &1599032360
 Transform:

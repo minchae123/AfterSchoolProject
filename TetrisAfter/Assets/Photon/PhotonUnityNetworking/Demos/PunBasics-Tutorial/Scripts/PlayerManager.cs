@@ -133,7 +133,7 @@ namespace Photon.Pun.Demo.PunBasics
         {
             // we only process Inputs and check health if we are the local player
             if (photonView.IsMine)
-            {
+            { 
                 this.ProcessInputs();
 
                 if (this.Health <= 0f && !this.leavingRoom)
