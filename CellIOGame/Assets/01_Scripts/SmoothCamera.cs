@@ -16,6 +16,6 @@ public class SmoothCamera : MonoBehaviour
         posLerp.z = transform.position.z;
 
         transform.position = posLerp;
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 5 * target.localScale.x, scaleSpeed * Time.deltaTime);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 3 * target.localScale.x, scaleSpeed * Time.deltaTime);
     }
 }

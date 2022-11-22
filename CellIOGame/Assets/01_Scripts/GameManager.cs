@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,4 +34,6 @@ public class GameManager : MonoBehaviour
 
         food.GetComponent<SpriteRenderer>().color = Random.ColorHSV(0, 1, 0.9f, 1);
     }
+
+
 }
