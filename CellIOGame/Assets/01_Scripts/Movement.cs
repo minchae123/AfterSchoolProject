@@ -7,6 +7,11 @@ public class Movement : MonoBehaviour
     public Camera cam;
     public float speed;
 
+    private void Start()
+    {
+        cam = Camera.main;
+    }
+
     private void Update()
     {
         Vector2 input = Input.mousePosition;

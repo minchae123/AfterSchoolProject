@@ -31,6 +31,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
+        GameManager.instance.SpawnPlayer();
         Debug.Log("¾îµô µé¾î¿Í !");
     }
 }
