@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Movement : MonoBehaviour
+public class Movement : MonoBehaviour, IPunObservable
 {
     public Camera cam;
     public float speed;
@@ -12,20 +12,33 @@ public class Movement : MonoBehaviour
     public Text nick;
     public PhotonView pv;
 
-    private void Start()
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        cam = Camera.main;
+        //throw new System.NotImpementedException();
+    }
+
+    private void Awake()
+    {
+        Debug.Log(pv.Owner.NickName);
         nick.text = pv.IsMine ? PhotonNetwork.NickName : pv.Owner.NickName;
         nick.transform.parent.GetComponent<Canvas>().worldCamera = cam;
     }
 
+    private void Start()
+    {
+        cam = Camera.main;
+    }
+
     private void Update()
     {
-        Vector2 input = Input.mousePosition;
-        Vector3 worldPos = cam.ScreenToWorldPoint(input);
-        Vector3 nPos = Vector3.MoveTowards(transform.position, worldPos, speed * Time.deltaTime);
+        if (pv.IsMine)
+        {
+            Vector2 input = Input.mousePosition;
+            Vector3 worldPos = cam.ScreenToWorldPoint(input);
+            Vector3 nPos = Vector3.MoveTowards(transform.position, worldPos, speed * Time.deltaTime);
 
-        nPos.z = transform.position.z;
-        transform.position = nPos;
+            nPos.z = transform.position.z;
+            transform.position = nPos;
+        }
     }
 }

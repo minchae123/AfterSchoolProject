@@ -143,6 +143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   speed: 10
+  nick: {fileID: 7286196387987150789}
+  pv: {fileID: 0}
 --- !u!114 &5344211705313744886
 MonoBehaviour:
   m_ObjectHideFlags: 0
