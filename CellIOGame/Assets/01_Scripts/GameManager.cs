@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [Header("플레이어 스폰")]
     public GameObject playerPrefab;
     public GameObject camm;
+    public GameObject virusPrefab;
 
     public Vector2 xRange;
     public Vector2 yRange;
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        SpawnVirus();
         for (int i = 0; i < 15; i++)
         {
             SpawnFood();
@@ -48,5 +50,12 @@ public class GameManager : MonoBehaviour
 
         _player.GetComponent<SizeManager>().enabled = true;
         _player.GetComponent<Movement>().enabled = true;
+    }
+
+    public void SpawnVirus()
+    {
+        Vector3 spawnPos = new Vector3(Random.Range(xRange.x, xRange.y), Random.Range(yRange.x, yRange.y));
+
+        GameObject virus = Instantiate(virusPrefab, spawnPos, Quaternion.identity);
     }
 }

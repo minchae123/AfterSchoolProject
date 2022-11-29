@@ -37,6 +37,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedLobby();
 
+        Debug.Log("°í");
         PhotonNetwork.JoinOrCreateRoom(roomName, null, null);
     }
 
