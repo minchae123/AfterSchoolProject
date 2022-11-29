@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,6 +46,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         GameManager.instance.SpawnPlayer();
+
+        foreach(Player p in PhotonNetwork.PlayerList)
+        {
+            Debug.Log(p.NickName);   
+        }
+
         Debug.Log("¾îµô µé¾î¿Í !");
     }
 }

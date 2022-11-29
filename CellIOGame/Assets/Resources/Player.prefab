@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreBoard: {fileID: 0}
   scaleSpeed: 5
+  cell: {fileID: 0}
 --- !u!114 &6336792231621885683
 MonoBehaviour:
   m_ObjectHideFlags: 0
