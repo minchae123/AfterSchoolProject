@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     {
         Vector3 spawnPos = new Vector3(Random.Range(xRange.x, xRange.y), Random.Range(yRange.x, yRange.y));
 
-        GameObject virus = Instantiate(virusPrefab, spawnPos, Quaternion.identity);
+        //GameObject virus = Instantiate(virusPrefab, spawnPos, Quaternion.identity);
+        GameObject virus = PhotonNetwork.Instantiate(virusPrefab.name, spawnPos, Quaternion.identity);
     }
 }

@@ -46,6 +46,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         GameManager.instance.SpawnPlayer();
+        GameManager.instance.SpawnVirus();
 
         foreach(Player p in PhotonNetwork.PlayerList)
         {
