@@ -9,9 +9,12 @@ public class RoomHolder : MonoBehaviour
 {
     [SerializeField] private Text text;
 
+    public RoomInfo info;
+
 
     public void SetRoomInfo(RoomInfo info)
     {
+        this.info = info;
         text.text = $"max : {info.MaxPlayers} , {info.Name}";
     }
 }
