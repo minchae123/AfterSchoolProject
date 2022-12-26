@@ -24,4 +24,12 @@ public class CubeSpawner : MonoBehaviour
         defaultSpawnPos = transform.position;
         maxCubeNumber = (int)Mathf.Pow(2, maxPower);
     }
+
+    public void InitCubeQueue()
+    {
+        for(int i = 0; i < cubesQueueCapacity; i++)
+        {
+            // 큐브를 생성해서 큐에 쌓아두기
+        }
+    }
 }
