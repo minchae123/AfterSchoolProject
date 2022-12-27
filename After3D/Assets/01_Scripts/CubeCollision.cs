@@ -13,7 +13,7 @@ public class CubeCollision : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Cube otherCube = collision.gameObject.GetComponent<Cube>();
-        if(otherCube != null)
+        if(otherCube != null && cube.CubeId > otherCube.CubeId)
         {
             if(cube.cubeNumber == otherCube.cubeNumber)
             {
@@ -37,10 +37,15 @@ public class CubeCollision : MonoBehaviour
                     {
                         col.attachedRigidbody.AddExplosionForce(explosionFoce, contactPoint, explosionRadius);
 
-                        CubeSpawner.Instance.DestroyCube(cube);
-                        CubeSpawner.Instance.DestroyCube(otherCube);
+
                     }
                 }
+
+                ExplosionFX.Instance.PlayerCubeExplosion(contactPoint, cube.cubleColor);
+
+                CubeSpawner.Instance.DestroyCube(cube);
+                CubeSpawner.Instance.DestroyCube(otherCube);
+
             }
         }
     }

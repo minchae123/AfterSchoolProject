@@ -5,6 +5,9 @@ using TMPro;
 
 public class Cube : MonoBehaviour
 {
+    static int staticId = 0;
+    public int CubeId;
+
     public TMP_Text[] numbersLists;
     public Color cubleColor;
     public int cubeNumber;
@@ -13,12 +16,14 @@ public class Cube : MonoBehaviour
 
     private void Awake()
     {
+        CubeId = staticId++;
         cubeMeshRenderer = GetComponent<MeshRenderer>();
         cubeRigidbody = GetComponent<Rigidbody>();
     }
 
     public void SetColor(Color co)
     {
+        cubleColor = co;
         cubeMeshRenderer.material.color = co;
     }
 
