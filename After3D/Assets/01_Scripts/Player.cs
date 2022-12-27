@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        SpawnCube();
+
         touchSlider.OnPointerDownEvent += OnPointerDown;
         touchSlider.OnPointerUpEvent += OnPointerUP;
         touchSlider.OnPointerDragEvent += OnPointerDrag;
@@ -39,6 +41,8 @@ public class Player : MonoBehaviour
     {
         if (isPointerDown) isPointerDown = false;
         mainCube.cubeRigidbody.AddForce(Vector3.forward * pushForce, ForceMode.Impulse);
+
+        Invoke("SpawnNewCube", 0.3f);
     }
 
     public void OnPointerDrag(float x)
@@ -57,4 +61,14 @@ public class Player : MonoBehaviour
         touchSlider.OnPointerDragEvent -= OnPointerDrag; 
     }
 
+    public void SpawnCube()
+    {
+        mainCube = CubeSpawner.Instance.SpawnRandom();
+        cubePos = mainCube.transform.position;
+    }
+
+    public void SpawnNewCube()
+    {
+        SpawnCube();
+    }
 }
